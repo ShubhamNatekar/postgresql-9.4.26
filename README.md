@@ -11,7 +11,7 @@
 - `    su postgres `
 
 ## Configuration :
-    - Open 'vim ~/.bashrc' file and add below lines.
+-   Open 'vim ~/.bashrc' file and add below lines.
 ``` 
     export LD_LIBRARY_PATH=/usr/local/pgsql/lib  
     export PATH=/usr/local/pgsql/bin:$PATH 
