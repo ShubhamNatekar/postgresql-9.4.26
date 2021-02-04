@@ -29,15 +29,15 @@
 - eg. ` postgres -D ~/mycluster >logfile 2>&1 & `
 
 ### To check server is running run below cmd: 
-- ` $pg_ctl status `         
+- ` pg_ctl status `         
         pg_ctl: server is running (PID: 10246)
         /usr/local/pgsql/bin/postgres
 
-- ` $psql --version`
-- ` $psql ` (optional: psql -U shubham -d shubham)
+- ` psql --version`
+- ` psql ` (optional: psql -U shubham -d shubham)
 
 ## To work on psql everytime run only following cmds:
 - `su postgres`
 - ` pg_ctl start ` (press CLT+c after this cmd)
-- ` $psql `
+- ` psql `
 - ` pg_ctl restart ` (To restart server )
