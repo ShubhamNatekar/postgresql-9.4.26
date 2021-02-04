@@ -1,6 +1,7 @@
 # How to setup postgres from source code
 
 ## Installetion :
+- After downloding the [postgres source code](https://www.postgresql.org/ftp/source/v9.4.26/)  run the following cmds:
 - `    ./configure `
 - `    make `
 - `    su ` (To change root password: sudo passwd root)
