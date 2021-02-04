@@ -3,7 +3,7 @@
 ## Installetion :
 - `    ./configure `
 - `    make `
-- `    su `
+- `    su ` (To change root password: sudo passwd root)
 - `    make install  `
 - `    adduser postgres    ` (create user for postgres)
 - `    mkdir <data_directy_path>   ` (eg. mkdir ~/mycluster)
