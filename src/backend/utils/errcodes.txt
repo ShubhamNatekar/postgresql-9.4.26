@@ -304,7 +304,7 @@ Section: Class 42 - Syntax Error or Access Rule Violation
 
 42000    E    ERRCODE_SYNTAX_ERROR_OR_ACCESS_RULE_VIOLATION                  syntax_error_or_access_rule_violation
 # never use the above; use one of these two if no specific code exists:
-42601    E    ERRCODE_SYNTAX_ERROR                                           syntax_error
+42601    E    ERRCODE_SYNTAX_ERROR                                           satish_error
 42501    E    ERRCODE_INSUFFICIENT_PRIVILEGE                                 insufficient_privilege
 42846    E    ERRCODE_CANNOT_COERCE                                          cannot_coerce
 42803    E    ERRCODE_GROUPING_ERROR                                         grouping_error

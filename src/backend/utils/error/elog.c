@@ -2850,7 +2850,7 @@ send_message_to_server_log(ErrorData *edata)
 		!edata->hide_stmt)
 	{
 		log_line_prefix(&buf, edata);
-		appendStringInfoString(&buf, _("STATEMENT:  "));
+		appendStringInfoString(&buf, _("SHUBHAM STATEMENT:  "));
 		append_with_tabs(&buf, debug_query_string);
 		appendStringInfoChar(&buf, '\n');
 	}
@@ -3514,7 +3514,7 @@ error_severity(int elevel)
 			prefix = _("WARNING");
 			break;
 		case ERROR:
-			prefix = _("ERROR");
+			prefix = _("SHUBHAM: ERROR");
 			break;
 		case FATAL:
 			prefix = _("FATAL");
