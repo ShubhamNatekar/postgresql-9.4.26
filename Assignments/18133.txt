@@ -1,0 +1,77 @@
+Q1 Find out how information is passed to OS from DB in the source code while creating database, table ?
+
+ANS:
+	Information is passed to OS from DB via fe-misc.c file
+	Whenever there is a need to enlarge the buffer, first it is doubled in size; if
+	that doesn't work, enlarge in multiples of 8K.  This avoids thrashing
+	the malloc pool by repeated small enlargements.
+
+Q2 How insertion into a table is taken care off ?
+    
+ANS:    
+	Src/backend/executor/nodeModifyTable.c
+    1 single row insertion : contrib/dblink/dblink.c (get_sql_insert)
+    2 multiple row insertion : src/backend/utils/adt/ruleutils.c(get_insert_query_def)
+    3 insertion with select : src/backend/commands/matview.c (appendStringInfo - Line 748)
+    4 using copy statement : src/bin/psql/copy.c
+
+Q3 How many different plan nodes are supported in Postgres?
+
+ANS: 
+1) Joins  => 1)Nested Loop join        2)Merge join         3)Hash join2) Scans => 1) Table scans => Sequential scan , Index scan , Bitmap scan , tid scan3) Miscellaneous =>  Sort, Aggregate, Unique, Limit, Materialize , SubPlan, Initplan4) Set Operations, Partitioned Tables, and Inheritance => Append , SetOp Except, Intersect
+
+T_SeqScan:
+T_IndexScan:
+T_IndexOnlyScan:
+T_BitmapIndexScan
+T_BitmapHeapScan:
+T_TidScan:
+T_SubqueryScan:
+T_FunctionScan:
+T_ValuesScan:
+T_CteScan:
+T_WorkTableScan:
+T_ForeignScan:
+T_Material
+T_Sort
+T_Group
+T_Agg
+    AGG_PLAIN
+    AGG_SORTED
+    AGG_HASHED
+T_ModifyTable:
+    CMD_INSERT
+    CMD_UPDATE
+    CMD_DELETE
+T_Append
+T_MergeAppend
+T_BitmapAnd
+T_BitmapOr
+T_SubqueryScan
+T_Result
+T_RecursiveUnion
+T_NestLoop
+T_MergeJoin
+T_HashJoin
+    JOIN_INNER
+	JOIN_LEFT
+	JOIN_FULL
+	JOIN_RIGHT
+	JOIN_SEMI
+    JOIN_ANTI:		
+T_WindowAgg
+T_Unique
+T_SetOp
+    SETOP_SORTED
+    SETOP_HASHED
+    SETOPCMD_INTERSECT
+    SETOPCMD_INTERSECT_ALL
+    SETOPCMD_EXCEPT
+    SETOPCMD_EXCEPT_ALL
+T_LockRows
+T_Limit
+T_Hash
+
+Q4 Search for the datastructure definition for "plan"?
+
+ANS: Src/include/nodes/plannodes.h
