@@ -18,8 +18,8 @@
 ``` 
     export LD_LIBRARY_PATH=/usr/local/pgsql/lib  
     export PATH=/usr/local/pgsql/bin:$PATH 
+    export PGDATA=/usr/local/pgsql/data 
 ```
-- ` export PGDATA=/usr/local/pgsql/data `
 - ` source ~/.bashrc ` (Reload shell)
 
 **NOTE:** This ".bashrc" file is diffrent from you local machine make sure you are login with postgres user.
@@ -37,9 +37,8 @@
         /usr/local/pgsql/bin/postgres
 
 - ` psql --version`
-- ` psql ` (optional: psql -U shubham -d shubham)
 
 ## To work on psql everytime run only following cmds:
 - ` su postgres`
 - ` pg_ctl start ` (To start the server) or ` pg_ctl restart ` (To restart server )
-- ` psql `
+- ` psql ` (optional: psql -U shubham -d shubham)
