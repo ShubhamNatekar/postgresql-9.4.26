@@ -2,13 +2,15 @@
 
 ## Installetion :
 - After downloding the [postgres source code](https://www.postgresql.org/ftp/source/v9.4.26/)  run the following cmds:
-- `    ./configure `
-- `    make `
-- `    su ` (To change root password: sudo passwd root)
+- `    sudo ./configure `
+- `    sudo make `
+- `    sudo passwd root ` (Change root password)
+- `    su ` 
 - `    make install  `
 - `    adduser postgres    ` (create user for postgres)
-- `    mkdir <data_directy_path>   ` (eg. mkdir ~/mycluster)
-- `    chown postgres <data_directy_path> ` (eg. chown postgres ~/mycluster)
+- `    sudo passwd postgres ` (Change postgres password)
+- `    sudo mkdir /usr/local/pgsql/data   ` (we can also create some other directory for data eg. mkdir ~/mycluster)
+- `    sudo chown postgres /usr/local/pgsql/data `
 - `    su postgres `
 
 ## Configuration :
@@ -17,16 +19,16 @@
     export LD_LIBRARY_PATH=/usr/local/pgsql/lib  
     export PATH=/usr/local/pgsql/bin:$PATH 
 ```
-- ` export PGDATA=$HOME/mycluster `
+- ` export PGDATA=/usr/local/pgsql/data `
 - ` source ~/.bashrc ` (Reload shell)
 
 **NOTE:** This ".bashrc" file is diffrent from you local machine make sure you are login with postgres user.
 
 ### Now you can directly use psql cmds :
-- ` initdb -D <data_directy_path> ` (The "-D" option specifies the location where the data will be stored.)
-- ` postgres -D <data_directy_path> >logfile 2>&1 & `
-- eg. ` initdb -D ~/mycluster `
-- eg. ` postgres -D ~/mycluster >logfile 2>&1 & `
+- ` initdb -D /usr/local/pgsql/data ` (The "-D" option specifies the location where the data will be stored.)
+- ` postgres -D /usr/local/pgsql/data >logfile 2>&1 & `
+- eg. ` initdb -D /usr/local/pgsql/data `
+- eg. ` postgres -D /usr/local/pgsql/data >logfile 2>&1 & `
 - ` pg_ctl start `     (start psql server)
 
 ### To check server is running run below cmd: 
@@ -39,6 +41,5 @@
 
 ## To work on psql everytime run only following cmds:
 - ` su postgres`
-- ` pg_ctl start ` (press CLT+c after this cmd)
+- ` pg_ctl start ` (To start the server) or ` pg_ctl restart ` (To restart server )
 - ` psql `
-- ` pg_ctl restart ` (To restart server )
